@@ -2,6 +2,7 @@
 echo "erfagfregror";
 
 require('db.php');
+session_start();
 if (isset($_REQUEST['email'])) {
     echo "xyz";
     $email = stripslashes($_REQUEST['email']);
@@ -24,8 +25,6 @@ if (isset($_REQUEST['email'])) {
 
         if ($rows == 1) {
             $row = mysqli_fetch_array($result);
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['email'] = $row['email'];
             echo "found";
             header("Location: login.php");
         } else {

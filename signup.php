@@ -11,11 +11,12 @@
 <body>
     <div>
         <input type="text" placeholder="username" class="username" id="username" />
-        <input type="emal" placeholder="email" class="class" id="email" />
+        <input type="email" placeholder="email" class="class" id="email" />
         <input type="password" placeholder="password" class="password" id="password" />
         <input type="password" class="cpassword" placeholder="cpassword" id="cpassword" />
         <input type="submit" class="submit" id="submit" name="submit" />
     </div>
+    <a href="login.php">login</a>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {
             validate();

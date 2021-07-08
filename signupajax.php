@@ -2,6 +2,8 @@
 $data = json_decode(file_get_contents("php://input"), true);
 echo "erfagfregror";
 
+print_r($_REQUEST);
+
 require('db.php');
 if (isset($_REQUEST['username'])) {
     $username = stripslashes($_REQUEST['username']);
@@ -26,6 +28,8 @@ if (isset($_REQUEST['username'])) {
         $query    = "INSERT into `users` (username, password, email)
                      VALUES ('$username', '" . md5($password) . "', '$email')";
         $result   = mysqli_query($con, $query);
+
+        die($query);
         if ($result) {
             echo "<div class='form'>
                   <h3>You are registered successfully.</h3><br/>

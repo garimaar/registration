@@ -1,78 +1,45 @@
-<?php
-      
-  include_once('config.php');
-  
-  if (isset($_POST['submit'])) {
-      
-      $errorMsg = "";
-      
-      $username = mysqli_real_escape_string($con, $_POST['username']);
-      $email    = mysqli_real_escape_string($con, $_POST['email']);
-      $password = mysqli_real_escape_string($con, $_POST['password']);
-      $password = password_hash($password, PASSWORD_DEFAULT);
-      
-      $sql = "SELECT * FROM users WHERE email = '$email'";
-      $execute = mysqli_query($con, $sql);
-        
-      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          $errorMsg = "Email in not valid try again";
-      }else if(strlen($password) < 6) {
-          $errorMsg  = "Password should be six digits";
-      }else if($execute->num_rows == 1){
-          $errorMsg = "This Email is already exists";
-      }else{
-          $query= "INSERT INTO users(username,email,password) 
-                  VALUES('$username','$email','$password')";
-          $result = mysqli_query($con, $query);
-      if ($result == true) {
-          header("Location:login.php");
-      }else{
-          $errorMsg  = "You are not Registred..Please Try again";
-      }
-    }
-  }
+<!DOCTYPE html>
+<html>
 
-?>
-<!Doctype html>
-<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Signup</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="app.css">
+    <title>signup</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="signup.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
-<div class="container" style="margin-top:50px">
-<h1 style="text-align:center;">Sign up</h1><br>
-  <div class="row">
-    <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <?php
-            if (isset($errorMsg)) {
-                echo "<div class='alert alert-danger alert-dismissible'>
-                        <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                        $errorMsg
-                      </div>";
-            }
-        ?>
-        <form action="" method="POST">
-          <div class="form-group">
-             <input type="text" class="form-control" name="username" placeholder="Username" required="">
-          </div>
-          <div class="form-group">
-             <input type="email" class="form-control" name="email" placeholder="Email" required="">
-          </div>
-          <div class="form-group">
-             <input type="password" class="form-control" name="password" placeholder="Password" required="">
-          </div>
-          <div class="form-group">
-          <Input type = "checkbox" name=" cool[]" value=" admin">  
-          </div>
-          <p>If you have account <a href="login.php">Login</a></p>
-          <input type="submit" class="btn btn-warning btn btn-block" name="submit" value="Sign Up">  
-        </form>
-      </div>
+    <div>
+        <input type="text" placeholder="username" class="username" id="username" />
+        <input type="emal" placeholder="email" class="class" id="email" />
+        <input type="password" placeholder="password" class="password" id="password" />
+        <input type="password" class="cpassword" placeholder="cpassword" id="cpassword" />
+        <input type="submit" class="submit" id="submit" name="submit" />
     </div>
-  </div>
+    <script>
+        document.getElementById("submit").addEventListener("click", async (e) => {
+            validate();
+            await axios
+                .post(
+                    "/application/signupajax.php", {
+                        name: document.getElementById("username").value,
+                        email: document.getElementById("email").value,
+                        password: document.getElementById("password").value,
+                    }, {
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                    }
+                )
+                .then((response) => {
+                    if ((response.data = "error")) {
+                        alert(" error");
+                    } else {
+                        alert("done");
+                    }
+                });
+        });
+    </script>
 </body>
+
 </html>

@@ -13,8 +13,7 @@ if (isset($_REQUEST['username'])) {
     $password = stripslashes($_REQUEST['password']);
     $password = mysqli_real_escape_string($con, $password);
     if (empty($username)) {
-        $error = '<p>empty username</p>';
-        echo $error;
+        $error = '<p>invalid username</p>';
     }
     if (empty($email)) {
         $error = '<p>invalid email</p>';

@@ -10,12 +10,13 @@
 
 <body>
     <div>
-        <input type="email" class="email" placeholder="email" id="email" />
-        <input type="password" placeholder="password" id="password" class="=password" />
+        <input type="email" name="email" placeholder="email" id="email" />
+        <input type="password" placeholder="password" id="password" name="=password" />
         <input type="submit" name="submit" class="submit" id="submit" />
     </div>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {
+            validation();
             await axios
                 .post(
                     "/application/loginajax.php", {

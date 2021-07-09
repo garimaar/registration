@@ -16,12 +16,4 @@ function validate(){
     if(ppassword != cpassword){
         $("#cpassword").after('<span class="error">password not match</span>');
     }
-    $.ajax({
-        method: "POST",
-        url: "signupajax.php",
-        data: { username: nname, email: eemail ,password:ppassword  }
-      })
-        .done(function( ) {
-          alert( "Data Saved: " );
-        });
 }

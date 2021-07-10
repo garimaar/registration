@@ -1,4 +1,4 @@
-function validate(){
+function validate1(){
     password=$('#password').val();
     cpassword=$('#cpassword').val();
     email=$('#email').val();

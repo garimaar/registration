@@ -2,7 +2,7 @@
 $data = json_decode(file_get_contents("php://input"), true);
 echo "erfagfregror";
 
-print_r($_REQUEST);
+print_r($_REQUEST['username']);
 
 require('db.php');
 if (isset($_REQUEST['username'])) {
@@ -12,6 +12,8 @@ if (isset($_REQUEST['username'])) {
     $email    = mysqli_real_escape_string($con, $email);
     $password = stripslashes($_REQUEST['password']);
     $password = mysqli_real_escape_string($con, $password);
+    $role = stripslashes($_REQUEST['role']);
+    $role = mysqli_real_escape_string($con, $role);
     if (empty($username)) {
         $error = '<p>invalid username</p>';
     }
@@ -23,9 +25,13 @@ if (isset($_REQUEST['username'])) {
         $error = '<p>invalid password must be greater than 6</p>';
         echo $error;
     }
+    if ($role == 'select') {
+        $error = '<p>select option</p>';
+        echo $error;
+    }
     if (empty($error)) {
-        $query    = "INSERT into `users` (username, password, email)
-                     VALUES ('$username', '" . md5($password) . "', '$email')";
+        $query    = "INSERT into `users` (username, password, email,role)
+                     VALUES ('$username', '" . md5($password) . "', '$email' ,'$role')";
         $result   = mysqli_query($con, $query);
 
         die($query);

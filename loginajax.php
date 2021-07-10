@@ -2,7 +2,7 @@
 echo "erfagfregror";
 
 require('db.php');
-session_start();
+
 print_r($_REQUEST);
 print_r($_REQUEST['email']);
 

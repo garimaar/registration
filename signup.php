@@ -10,27 +10,30 @@
 
 <body>
     <div>
-        <input type="text" placeholder="username" class="username" id="username" />
-        <input type="email" placeholder="email" class="class" id="email" />
-        <input type="password" placeholder="password" class="password" id="password" />
-        <input type="password" class="cpassword" placeholder="cpassword" id="cpassword" />
+        <input type="text" placeholder="username" name="username" id="username" />
+        <input type="email" placeholder="email" name="class" id="email" />
+        <input type="password" placeholder="password" name="password" id="password" />
+        <input type="password" name="cpassword" placeholder="cpassword" id="cpassword" />
         <lable>select user type</lable>
         <select class="select type" name="role" id="role">
+            <option value="select" default>select</option>
             <option value="user">user</option>
             <option value="admin">admin</option>
         </select>
         <input type="submit" class="submit" id="submit" name="submit" />
     </div>
     <a href="login.php">login</a>
+    <a href="admin.php">users</a>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {
             validate();
             await axios
                 .post(
                     "/application/signupajax.php", {
-                        name: document.getElementById("username").value,
+                        username: document.getElementById("username").value,
                         email: document.getElementById("email").value,
                         password: document.getElementById("password").value,
+                        cpassword: document.getElementById("cpassword").value,
                         role: document.getElementById('role').value,
                     }, {
                         headers: {

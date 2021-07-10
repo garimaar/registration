@@ -16,6 +16,7 @@ if (isset($_REQUEST['password'])) {
     if (empty($email)) {
         $error = '<p>invalid email </p>';
     }
+
     if (empty($error)) {
         $query    = "update users set password='$password' where email='$email'";
         die($query);

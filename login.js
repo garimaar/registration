@@ -1,13 +1,19 @@
 function validation(){
-  console.log($['#email'])
-    email=$["#email"].val();
-    password=$['#password'].val();
-
-    if(email<1)
+    eemail=$('#email').val();
+    ppassword=$('#password').val();
+    if(eemail<1)
     {
         $('#email').after('<span class="error">Field required</span>');
     }
-    if(password<6){
+    if(ppassword<6){
         $('#password').after('<span class="error">field required</span>');
     }
+    $.ajax({
+        method: "POST",
+        url: "loginajax.php",
+        data: { email: eemail , password:ppassword }
+      })
+        .done(function() {
+          alert( "Data found: ");
+        });
 }

@@ -14,3 +14,6 @@ if ($_GET['submit']) {
         echo "updated";
     }
 }
+
+
+?>

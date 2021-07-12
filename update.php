@@ -1,15 +1,17 @@
 <?php
 require('db.php');
 $id = $_GET['id'];
-echo $username = $_GET['un'];
+$username = $_GET['un'];
 $email = $_GET['em'];
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Reset Password</title>
+    <title>update </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="update.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -19,25 +21,7 @@ $email = $_GET['em'];
     <input type="submit" class="submit" id="submit" name="submit" />
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {
-            await axios
-                .post(
-                    "/application/updateajax.php", {
-                        username: document.getElementById("username").value,
-                        email: document.getElementById("email").value,
-                        id: document.getElementById('id').value,
-                    }, {
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                    }
-                )
-                .then((response) => {
-                    if ((response.data = "error")) {
-                        alert(" error");
-                    } else {
-                        alert("done");
-                    }
-                });
+            loaddata();
         });
     </script>
 </body>

@@ -1,11 +1,13 @@
 <?php
 require('db.php');
-print_r($_GET['id']);
+echo "xyz";
+print_r($_REQUEST['id']);
 
-if ($_GET['submit']) {
-    $id = $_GET['id'];
-    $username = $_GET['username'];
-    $email = $_GET['email'];
+if (isset($_REQUEST['id'])) {
+    $id = $_REQUEST['id'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    print_r($email);
 
     $query = 'UPDATE users SET username="$username ",email="$email " WHERE id="$id"';
     $data = mysqli_query($con, $query);
@@ -14,6 +16,3 @@ if ($_GET['submit']) {
         echo "updated";
     }
 }
-
-
-?>

@@ -26,24 +26,6 @@ session_start();
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {
             validation();
-            await axios
-                .post(
-                    "/application/loginajax.php", {
-                        email: document.getElementById("email").value,
-                        password: document.getElementById("password").value,
-                    }, {
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                    }
-                )
-                .then((response) => {
-                    if ((response.data = "error")) {
-                        alert(" error");
-                    } else {
-                        alert("done");
-                    }
-                });
         });
     </script>
 </body>

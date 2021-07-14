@@ -2,11 +2,11 @@
 <html>
 
 <body>
-
     <?php
-    require('db.php');
-
-    $sql = "CREATE TABLE IF NOT EXISTS `users` (
+    function create()
+    {
+        require('db.php');
+        $sql = "CREATE TABLE IF NOT EXISTS `users` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `username` varchar(255) DEFAULT NULL,
     `password` varchar(100) DEFAULT NULL,
@@ -16,12 +16,32 @@
     UNIQUE KEY `email` (`email`)
     );";
 
-    if ($con->query($sql) === TRUE) {
-        echo "Table users created successfully";
-    } else {
-        echo "Error creating table: " . $con->error;
+        if ($con->query($sql) === TRUE) {
+            echo "Table users created successfully";
+        } else {
+            echo "Error creating table: " . $con->error;
+        }
     }
 
+    function drop()
+    {
+        require('db.php');
+        $sql = " DROP TABLE 'users' ";
+    }
+
+    $shortopts  = "";
+    $shortopts .= "f:";
+    $shortopts .= "v::";
+    $shortopts .= "abc";
+
+    $longopts  = array(
+        "required:",
+        "optional::",
+        "option",
+        "opt",
+    );
+    $options = getopt($shortopts, $longopts);
+    var_dump($options);
     ?>
 
 </body>

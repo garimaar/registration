@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +13,10 @@
 </head>
 
 <body>
+    <div class="data">
+        <p><?php echo $_SESSION['username']; ?></p>
+        <p><?php echo $_SESSION['email']; ?></p>
+    </div>
     <div class="form">
         <h1>login</h1>
         <input type="email" name="email" placeholder="email" id="email" class="text" />

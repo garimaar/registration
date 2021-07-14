@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -6,6 +9,10 @@
 </head>
 
 <body>
+    <div>
+        <p><?php echo $_SESSION['username']; ?></p>
+    </div>
+    </div>
     <div class="table">
         <h1>User details</h1>
         <table>

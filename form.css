@@ -36,6 +36,9 @@ h1 {
   text-align: center;
   cursor: pointer;
 }
+p {
+  float: right;
+}
 a {
   color: #666;
   font-size: 15px;

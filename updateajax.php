@@ -7,9 +7,8 @@ if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
     $username = $_POST['username'];
     $email = $_POST['email'];
-    print_r($email);
 
-    $query = 'UPDATE users SET username="$username ",email="$email " WHERE id="$id"';
+    $query = 'UPDATE  users SET username=$username ,email="$email " WHERE id="$id"';
     $data = mysqli_query($con, $query);
 
     if ($data) {

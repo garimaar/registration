@@ -2,6 +2,7 @@
 echo "erfagfregror";
 
 require('db.php');
+session_start();
 
 print_r($_REQUEST);
 print_r($_REQUEST['email']);
@@ -22,14 +23,17 @@ if (isset($_REQUEST['email'])) {
         $query    = "SELECT * FROM `users` WHERE email='$email'
                      AND password='" . md5($password) . "'";
 
+        echo   $query;
 
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
 
         if ($rows == 1) {
             $row = mysqli_fetch_array($result);
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['email'] = $row['email'];
             echo "found";
-            header("Location: login.php");
+            header("Location: admin.php");
         } else {
             echo "<div class='form'>
                   <h3>Incorrect Username/password.</h3><br/>

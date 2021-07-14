@@ -27,6 +27,11 @@
     {
         require('db.php');
         $sql = " DROP TABLE 'users' ";
+        if ($con->query($sql) === TRUE) {
+            echo "Table users deleted successfully";
+        } else {
+            echo "Error deketing table: " . $con->error;
+        }
     }
 
     $shortopts  = "";

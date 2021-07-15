@@ -20,6 +20,7 @@ function setUserCookie()
     $date = date("D, d M Y H:i:s", strtotime('1 January 2015')) . 'GMT';
     header("Set-Cookie: 'name'='garima'; EXPIRES{$date};");
 }
+setUserCookie();
 ?>
 <html>
 

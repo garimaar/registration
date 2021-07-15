@@ -15,6 +15,7 @@ session_start();
 <body>
     <div class="data">
         <p><?php echo $_SESSION['username']; ?></p>
+        <br>
         <p><?php echo $_SESSION['email']; ?></p>
     </div>
     <div class="form">
@@ -22,6 +23,7 @@ session_start();
         <input type="email" name="email" placeholder="email" id="email" class="text" />
         <input type="password" placeholder="password" id="password" name="=password" class="text" />
         <input type="submit" name="submit" class="submit" id="submit" />
+        <a href="logout.php">logout</a>
     </div>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {

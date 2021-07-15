@@ -15,6 +15,11 @@ function setcookie3()
     setcookie("name", "garima", time() + 3600, "/", "", 0);
 }
 setcookie3();
+function setUserCookie()
+{
+    $date = date("D, d M Y H:i:s", strtotime('1 January 2015')) . 'GMT';
+    header("Set-Cookie: 'name'='garima'; EXPIRES{$date};");
+}
 ?>
 <html>
 

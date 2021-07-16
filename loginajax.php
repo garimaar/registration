@@ -33,6 +33,7 @@ if (isset($_REQUEST['email'])) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['role'];
+            $_SESSION['id'] = $row['id'];
             echo "found";
             header("Location: admin.php");
         } else {

@@ -20,7 +20,7 @@ if (isset($_REQUEST['email'])) {
         $error = '<p>empty password</p>';
         echo $error;
     } else {
-        $query    = "SELECT * FROM `users` WHERE email='$email'
+        $query    = "SELECT * FROM `user` WHERE email='$email'
                      AND password='" . md5($password) . "'";
 
         echo   $query;
@@ -32,6 +32,7 @@ if (isset($_REQUEST['email'])) {
             $row = mysqli_fetch_array($result);
             $_SESSION['username'] = $row['username'];
             $_SESSION['email'] = $row['email'];
+            $_SESSION['role'] = $row['role'];
             echo "found";
             header("Location: admin.php");
         } else {

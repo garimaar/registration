@@ -18,7 +18,7 @@ if (isset($_REQUEST['password'])) {
     }
 
     if (empty($error)) {
-        $query    = "update users set password='$password' where email='$email'";
+        $query    = "update user set password='$password' where email='$email'";
         die($query);
         if ($result) {
             echo "<div class='form'>

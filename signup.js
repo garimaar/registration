@@ -17,8 +17,8 @@ function validate(){
         $("#cpassword").after('<span class="error">password not match</span>');
     }
     if(role=='select'){
-        $("#role").after('<span class="error">select role</span>')
-    }
+        $("#role").after('<span class="error">select role</span>');
+    } 
     $.ajax({
         method: "POST",
         url: "signupajax.php",

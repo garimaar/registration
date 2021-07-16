@@ -24,7 +24,7 @@ session_start();
             </tr>
             <?php
             require('db.php');
-            $sql = "SELECT * FROM users WHERE role='user'";
+            $sql = "SELECT * FROM user WHERE role='user'";
             $query = mysqli_query($con, $sql) or die('error');
             if (mysqli_num_rows($query) > 0) {
                 while ($users = mysqli_fetch_assoc($query)) {

@@ -17,6 +17,11 @@ session_start();
         <p><?php echo $_SESSION['username']; ?></p>
         <br>
         <p><?php echo $_SESSION['email']; ?></p>
+        <br>
+        <p><?php echo $_SESSION['role'];
+            if ($_SESSION['role'] == 'admin') {
+                echo "<button><a href='blog.php'>blog</a></button>";
+            } ?></p>
     </div>
     <div class="form">
         <h1>login</h1>

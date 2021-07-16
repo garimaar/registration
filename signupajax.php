@@ -30,7 +30,7 @@ if (isset($_REQUEST['username'])) {
         echo $error;
     }
     if (empty($error)) {
-        $query    = "INSERT into `users` (username, password, email,role)
+        $query    = "INSERT into `user` (username, password, email,role)
                      VALUES ('$username', '" . md5($password) . "', '$email' ,'$role')";
         $result   = mysqli_query($con, $query);
 

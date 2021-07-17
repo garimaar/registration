@@ -13,9 +13,8 @@
         <label>Title of blog:</label>
         <input type="text" value="title" id="title" name="title" /><br>
         <label>Content of blog:</label>
-        <textarea id="content" name="content" rows="4" cols="50" name="content" id="content"></textarea><br>
+        <textarea name="content" rows="4" cols="50" name="content" id="content"></textarea><br>
         <input type="button" value="create button" id="create" />
-
     </div>
     <script>
         document.getElementById("create").addEventListener("click", async (e) => {

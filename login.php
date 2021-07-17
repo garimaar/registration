@@ -20,7 +20,8 @@ session_start();
         <br>
         <p><?php echo $_SESSION['role'];
             if ($_SESSION['role'] == 'admin') {
-                echo "<button><a href='blog.php'>blog</a></button>";
+                echo "<button><a href='blog.php'>create blog</a></button>";
+                echo "<button><a href='bloglisting.php'>blog list</a></button>";
             } ?></p>
     </div>
     <div class="form">

@@ -6,12 +6,12 @@ session_start();
 
 <head>
     <title>Blogs</title>
+    <script src="jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
     <div>
         <p><?php echo $_SESSION['username']; ?></p>
-    </div>
     </div>
     <div class="table">
         <h1>User details</h1>
@@ -36,20 +36,35 @@ session_start();
             if (mysqli_num_rows($query) > 0) {
                 while ($users = mysqli_fetch_assoc($query)) {
                     echo "
-            <tr>
+            <tr id='" . $users['id'] . "'>
             <td>" . $users['id'] . "</td>
             <td>" . $users['title'] . "</td>
             <td>" . $users['content'] . "</td>
             <td>" . $users['username'] . "</td>
             <td>" . $users['created_at'] . "</td>
             <td>" . $users['updated_at'] . "</td>
-            <td><button><a href='updateblog.php?id=$users[id]&ti=$users[title]&co=$users[content]'>edit/update</a></button><button class='delete'><a href='deleteblog.php?id=$users[id]&ti=$users[title]&co=$users[content]&un=$users[username]'>delete</a></button></td>";
+            <td><button><a href='updateblog.php?id=$users[id]&ti=$users[title]&co=$users[content]'>edit/update</a></button><button class='delete' onclick='delete_data($users[id])'> delete</button></td>";
                 }
             }
             ?>
         </table>
     </div>
     <button><a href='blog.php'>create blog</a></button>
+
+    <script>
+        function delete_data(id) {
+            alert(id);
+            alert("are you sure to delete");
+            jQuery.ajax({
+                url: 'deleteblog.php',
+                type: 'post',
+                data: 'id=' + id,
+                success: function(result) {
+                    jQuery(id).hide(500);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

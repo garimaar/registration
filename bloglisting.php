@@ -59,7 +59,7 @@ session_start();
                 url: 'deleteblog.php',
                 type: 'post',
                 data: 'id=' + id,
-                success: function(result) {
+                success: function() {
                     jQuery(id).hide(500);
                 }
             });

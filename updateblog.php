@@ -21,7 +21,7 @@ $content = $_GET['co'];
     <input type="text" placeholder="title" id="title" name="title" value="<?php echo "$title" ?>" /><br>
     <label>content:</label>
     <textarea name="content" rows="4" cols="50" name="content" id="content"><?php echo "$content" ?></textarea><br>
-    <input type="submit" class="submit" id="submit" name="submit" />
+    <button name="submit" id="submit"><a href="bloglisting.php">submit</a></button>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {
             loaddata();

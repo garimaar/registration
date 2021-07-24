@@ -21,10 +21,11 @@ $content = $_GET['co'];
     <input type="text" placeholder="title" id="title" name="title" value="<?php echo "$title" ?>" /><br>
     <label>content:</label>
     <textarea name="content" rows="4" cols="50" name="content" id="content"><?php echo "$content" ?></textarea><br>
-    <button name="submit" id="submit"><a href="bloglisting.php">submit</a></button>
+    <button name="submit" id="submit">submit</button>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {
             loaddata();
+            window.location.href = "bloglisting.php";
         });
     </script>
 </body>

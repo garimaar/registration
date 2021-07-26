@@ -36,7 +36,7 @@ session_start();
             if (mysqli_num_rows($query) > 0) {
                 while ($users = mysqli_fetch_assoc($query)) {
                     echo "
-            <tr id='" . $users['id'] . "'>
+            <tr id='row" . $users['id'] . "'>
             <td>" . $users['id'] . "</td>
             <td>" . $users['title'] . "</td>
             <td>" . $users['content'] . "</td>
@@ -60,7 +60,13 @@ session_start();
                 type: 'post',
                 data: 'id=' + id,
                 success: function() {
-                    jQuery(id).hide(500);
+                    <?php
+                    if ($_SESSION['username'] == $users['username']) {
+                    ?>
+                        alert(id);
+                    <?php
+                    }
+                    ?>
                 }
             });
         }

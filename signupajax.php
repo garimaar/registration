@@ -29,9 +29,10 @@ if (isset($_REQUEST['username'])) {
         $error = '<p>select option</p>';
         echo $error;
     }
+    $hash = password_hash($password, PASSWORD_DEFAULT);
     if (empty($error)) {
         $query    = "INSERT into `user` (username, password, email,role)
-                     VALUES ('$username', '" . md5($password) . "', '$email' ,'$role')";
+                     VALUES ('$username', '$hash', '$email' ,'$role')";
         $result   = mysqli_query($con, $query);
 
         die($query);

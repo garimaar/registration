@@ -60,13 +60,7 @@ session_start();
                 type: 'post',
                 data: 'id=' + id,
                 success: function() {
-                    <?php
-                    if ($_SESSION['username'] == $users['username']) {
-                    ?>
-                        alert(id);
-                    <?php
-                    }
-                    ?>
+                    alert("found");
                 }
             });
         }

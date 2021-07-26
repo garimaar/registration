@@ -13,7 +13,7 @@
         <label>Title of blog:</label>
         <input type="text" value="title" id="title" name="title" /><br>
         <label>Content of blog:</label>
-        <textarea name="content" rows="4" cols="50" name="content" id="content"></textarea><br>
+        <textarea name="content" rows="4" cols="50" name="content" id="content" required></textarea><br>
         <input type="button" value="create button" id="create" />
     </div>
     <script>

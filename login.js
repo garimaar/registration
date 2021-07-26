@@ -1,17 +1,17 @@
 function validation(){
-    eemail=$('#email').val();
-    ppassword=$('#password').val();
-    if(eemail<1)
+    email=$('#email').val();
+    password=$('#password').val();
+    if(email<1)
     {
         $('#email').after('<span class="error">Field required</span>');
     }
-    if(ppassword<6){
-        $('#password').after('<span class="error">field required</span>');
+    if(password.length<6){
+        $('#password').after('<span class="error">password less than 6 </span>');
     }
     $.ajax({
         method: "POST",
         url: "loginajax.php",
-        data: { email: eemail , password:ppassword }
+        data: { email: email , password:password }
       })
         .done(function() {
           alert( "Data found: ");

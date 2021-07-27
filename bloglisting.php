@@ -15,7 +15,7 @@ session_start();
     </div>
     <div class="table">
         <h1>User details</h1>
-        <table>
+        <table id='example'>
             <tr>
                 <th>Id</th>
                 <th>Title</th>
@@ -61,6 +61,7 @@ session_start();
                 data: 'id=' + id,
                 success: function() {
                     alert("found");
+                    location.reload();
                 }
             });
         }

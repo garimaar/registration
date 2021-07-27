@@ -1,11 +1,7 @@
 <?php
-echo "erfagfregror";
 
 require('db.php');
 session_start();
-
-print_r($_REQUEST);
-print_r($_REQUEST['email']);
 
 if (isset($_REQUEST['email'])) {
     echo "xyz";

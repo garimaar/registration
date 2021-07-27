@@ -5,6 +5,7 @@
     <title>Blog</title>
     <script src="blog.js"></script>
     <script src="jquery-3.6.0.min.js"></script>
+    <link href="blog.css" rel="stylesheet">
 </head>
 
 <body>

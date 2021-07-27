@@ -1,8 +1,5 @@
 <?php
 $data = json_decode(file_get_contents("php://input"), true);
-echo "erfagfregror";
-
-print_r($_REQUEST['title']);
 
 require('db.php');
 session_start();

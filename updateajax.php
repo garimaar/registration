@@ -1,7 +1,5 @@
 <?php
 require('db.php');
-echo "xyz";
-print_r($_REQUEST['id']);
 
 if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];

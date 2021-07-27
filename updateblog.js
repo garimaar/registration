@@ -3,7 +3,6 @@ function loaddata()
  var title=$('#title').val();
  var id=$('#id').val();
  var content=$('#content').val();
- alert(title);
 	
  if(title)
  {

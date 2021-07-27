@@ -7,6 +7,7 @@ session_start();
 <head>
     <title>users detail</title>
     <script src="jquery-3.6.0.min.js"></script>
+    <link href="file.css" rel="stylesheet">
 </head>
 
 <body>

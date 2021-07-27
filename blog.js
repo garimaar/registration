@@ -1,16 +1,19 @@
 function validate(){
+    alert("sgdj");
    var title=$("#title").val();
+   var content=$('#content').val();
    if(title<1){
         $("#title").after('<span class="error">This field is required</span>');
     }
-    var content = $("#content").val();
-        if(contet == " ")
-        {
-        alert("Please Enter in content Here");
-        }
+    if(content==" "){
+        alert("empty");
+    }
     $.ajax({
         method: "POST",
         url: "blogajax.php",
-        data: { title:title,content:content }
+        data: { title:title,content:content },
+        success: function () {
+            alert("saved");
+         }
       });
 }

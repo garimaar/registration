@@ -1,5 +1,4 @@
 function validate(){
-    alert("sgdj");
    var title=$("#title").val();
    var content=$('#content').val();
    if(title<1){

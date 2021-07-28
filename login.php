@@ -13,15 +13,24 @@ session_start();
 </head>
 
 <body>
-    <div class="data">
-        <p><?php echo $_SESSION['username']; ?></p>
+    <div id="data">
+        <p><?php
+            if (isset($_SESSION['username'])) {
+                echo $_SESSION['username'];
+            } ?></p>
         <br>
-        <p><?php echo $_SESSION['email']; ?></p>
+        <p><?php
+            if (isset($_SESSION['username'])) {
+                echo $_SESSION['email'];
+            } ?></p>
         <br>
-        <p><?php echo $_SESSION['role'];
-            if ($_SESSION['role'] == 'admin') {
-                echo "<button><a href='blog.php'>create blog</a></button>";
-                echo "<button><a href='bloglisting.php'>blog list</a></button>";
+        <p><?php
+            if (isset($_SESSION['username'])) {
+                echo $_SESSION['role'];
+                if ($_SESSION['role'] == 'admin') {
+                    echo "<button><a href='blog.php'>create blog</a></button>";
+                    echo "<button><a href='bloglisting.php'>blog list</a></button>";
+                }
             } ?></p>
     </div>
     <div class="form">

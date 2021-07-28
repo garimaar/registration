@@ -15,5 +15,6 @@ function validation(){
       })
         .done(function() {
           alert( "Data found: ");
+          location.reload();
         });
 }

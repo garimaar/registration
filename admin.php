@@ -12,7 +12,10 @@ session_start();
 
 <body>
     <div>
-        <p><?php echo $_SESSION['username']; ?></p>
+        <p><?php
+            if (isset($_SESSION['username'])) {
+                echo $_SESSION['username'];
+            } ?></p>
     </div>
     </div>
     <div class="table">

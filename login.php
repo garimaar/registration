@@ -39,6 +39,7 @@ session_start();
         <input type="password" placeholder="password" id="password" name="=password" class="text" />
         <input type="submit" name="submit" class="submit" id="submit" />
         <a href="logout.php">logout</a>
+        <p id="#response pre"></p>
     </div>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {

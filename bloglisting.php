@@ -62,9 +62,14 @@ session_start();
                 url: 'deleteblog.php',
                 type: 'post',
                 data: 'id=' + id,
-                success: function() {
-                    alert("found");
-                    location.reload();
+                success: function(response) {
+                    if (response.trim() == "are you sure") {
+                        alert("deleted successfully");
+                        location.reload();
+                    } else {
+                        alert("you cant delete");
+                        location.reload();
+                    }
                 }
             });
         }

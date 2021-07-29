@@ -4,7 +4,6 @@ require('db.php');
 session_start();
 
 if (isset($_REQUEST['email'])) {
-    echo "xyz";
     $email = stripslashes($_REQUEST['email']);
     $email = mysqli_real_escape_string($con, $email);
     $password = stripslashes($_REQUEST['password']);
@@ -19,24 +18,21 @@ if (isset($_REQUEST['email'])) {
         $query    = "SELECT * FROM `user` WHERE email='$email'
                      AND password='" . md5($password) . "'";
 
-        echo   $query;
-
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
 
         if ($rows == 1) {
+            echo "found";
             $row = mysqli_fetch_array($result);
             $_SESSION['username'] = $row['username'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['role'];
             $_SESSION['id'] = $row['id'];
-            echo "found";
-            header("Location: admin.php");
         } else {
-            echo "<div class='form'>
-                  <h3>Incorrect Username/password.</h3><br/>
-                  <p class='link'>Click here to <a href='login.php'>Login</a> again.</p>
-                  </div>";
+            echo "incorrect id/password";
+            return false;
         }
     }
+} else {
+    return false;
 }

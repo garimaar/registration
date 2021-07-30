@@ -4,8 +4,6 @@ $data = json_decode(file_get_contents("php://input"), true);
 require('db.php');
 session_start();
 
-print_r($_SESSION['id']);
-
 if (isset($_REQUEST['title'])) {
     $title = stripslashes($_REQUEST['title']);
     $title = mysqli_real_escape_string($con, $title);
@@ -23,13 +21,8 @@ if (isset($_REQUEST['title'])) {
         $query    = "INSERT into `blog` (title,content,admin_id)
         VALUES ('$title', '$content','$id')";
         $result   = mysqli_query($con, $query);
-
-        die($query);
         if ($result) {
-            echo "<div class='form'>
-                  <h3>Blog created.</h3><br/>
-                  <p class='link'>Click here to <a href='login.php'>Login</a></p>
-                  </div>";
+            echo "blog created";
         } else {
             echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>

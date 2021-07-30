@@ -11,8 +11,13 @@ function validate(){
         method: "POST",
         url: "blogajax.php",
         data: { title:title,content:content },
-        success: function () {
-            alert("saved");
+        success: function (response) {
+            if(response.trim()=="blog created"){
+            alert("blog created");
+            }
+            else{
+                alert("not created");
+            }
          }
       });
 }

@@ -1,7 +1,6 @@
 <?php
 require('db.php');
 if (isset($_REQUEST['password'])) {
-    echo "edit";
     $password = mysqli_real_escape_string($con, $_REQUEST['password']);
     $cpassword = mysqli_real_escape_string($con, $_REQUEST['cpassword']);
     $email = mysqli_real_escape_string($con, $_REQUEST['email']);
@@ -21,10 +20,7 @@ if (isset($_REQUEST['password'])) {
         $query    = "update user set password='$password' where email='$email'";
         die($query);
         if ($result) {
-            echo "<div class='form'>
-           <h3>editted successfuly.</h3><br/>
-            <p class='link'>Click here to <a href='login.php'>Login</a></p>
-         </div>";
+            echo "editted successfuly.";
         } else {
             echo "<div class='form'>
      <h3>Required fields are missing.</h3><br/>

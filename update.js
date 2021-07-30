@@ -12,8 +12,13 @@ function loaddata()
   url: 'updateajax.php',
   data: {
    username:username,id:id, email:email,},
-  success: function () {
-     alert("send");
+  success: function (response) {
+     if(response.trim()=="updated"){
+     alert("updated");
+     }
+     else{
+        alert("not updated");
+     }
   }
   });
  }

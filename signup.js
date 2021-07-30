@@ -4,28 +4,35 @@ function validate(){
     ppassword=$("#password").val();
     cpassword=$("#cpassword").val();
     role=$("#role").val();
+    var error=" ";
 
     if(nname<1){
-        $("#username").after('<span class="error">This field is required</span>');
+      error=$("#username").after('<span class="error">This field is required</span>');
     }
     if(eemail<1){
-        $("#email").after('<span class="error">this field is required</span>')
+      error = $("#email").after('<span class="error">this field is required</span>')
     }
     if(ppassword.length<6){
-        $("#password").after('<span class="error">less than 6</span>');
+     error=$("#password").after('<span class="error">less than 6</span>');
     }
     if(ppassword != cpassword){
-        $("#cpassword").after('<span class="error">password not match</span>');
+      error=$("#cpassword").after('<span class="error">password not match</span>');
     }
     if(role=='select'){
-        $("#role").after('<span class="error">select role</span>');
+      error=$("#role").after('<span class="error">select role</span>');
     } 
+    if(error==" "){
     $.ajax({
         method: "POST",
         url: "signupajax.php",
         data: { username:nname, email: eemail ,password:ppassword,role:role }
       })
-        .done(function() {
-          alert( "Data Saved: ");
+        .done(function(response) {
+            if(response.trim()=="You are registered successfully."){
+          alert( "registered successfully ");
+            }else{
+                alert("not registered");
+            }
         });
+    }
 }

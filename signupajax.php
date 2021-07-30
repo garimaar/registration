@@ -31,13 +31,8 @@ if (isset($_REQUEST['username'])) {
         $query    = "INSERT into `user` (username, password, email,role)
                      VALUES ('$username', '$hash', '$email' ,'$role')";
         $result   = mysqli_query($con, $query);
-
-        die($query);
         if ($result) {
-            echo "<div class='form'>
-                  <h3>You are registered successfully.</h3><br/>
-                  <p class='link'>Click here to <a href='login.php'>Login</a></p>
-                  </div>";
+            echo "You are registered successfully.";
         } else {
             echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>

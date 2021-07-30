@@ -47,16 +47,21 @@ session_start();
     </div>
     <script>
         function delete_data(id) {
-            alert(id);
-            alert("are you sure to delete");
-            jQuery.ajax({
-                url: 'delete.php',
-                type: 'post',
-                data: 'id=' + id,
-                success: function() {
-                    $("#row" + id).fadeOut();
-                }
-            });
+            if (confirm("are you sure to delete")) {
+                jQuery.ajax({
+                    url: 'delete.php',
+                    type: 'post',
+                    data: 'id=' + id,
+                    success: function(response) {
+                        if (response == "deleted") {
+                            $("#row" + id).fadeOut();
+                            alert("deleted");
+                        } else {
+                            alert("not deleted");
+                        }
+                    }
+                });
+            }
         }
     </script>
 </body>

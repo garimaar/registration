@@ -29,10 +29,10 @@
                     }
                 )
                 .then((response) => {
-                    if ((response.data = "error")) {
-                        alert(" error");
+                    if ((response.trim() = "editted successfuly.")) {
+                        alert("editted");
                     } else {
-                        alert("done");
+                        alert("not editted");
                     }
                 });
         });

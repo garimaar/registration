@@ -56,22 +56,23 @@ session_start();
 
     <script>
         function delete_data(id) {
-            alert(id);
-            alert("are you sure to delete");
-            jQuery.ajax({
-                url: 'deleteblog.php',
-                type: 'post',
-                data: 'id=' + id,
-                success: function(response) {
-                    if (response.trim() == "are you sure") {
-                        alert("deleted successfully");
-                        location.reload();
-                    } else {
-                        alert("you cant delete");
-                        location.reload();
+            if (confirm("are you sure to delete")) {
+                jQuery.ajax({
+                    url: 'deleteblog.php',
+                    type: 'post',
+                    data: 'id=' + id,
+                    success: function(response) {
+                        if (response.trim() == "are you sure") {
+                            alert("deleted successfully");
+                            location.reload();
+                        } else {
+                            alert("you cant delete");
+                            location.reload();
+                        }
                     }
-                }
-            });
+                });
+            }
+            setTimeout(delete_data, 4500);
         }
     </script>
 </body>

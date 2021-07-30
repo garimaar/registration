@@ -11,8 +11,13 @@ function loaddata()
   url: 'updateblogajax.php',
   data: {
    title:title,id:id, content:content,},
-  success: function () {
-     alert("send");
+  success: function (response) {
+     if(response.trim()=="Record updated successfully"){
+     alert("updated successfuly");
+     }
+     else{
+       alert("not updated");
+     }
   }
   });
  }

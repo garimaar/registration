@@ -1,4 +1,5 @@
 function validation(){
+
     email=$('#email').val();
     password=$('#password').val();
     var error=" ";
@@ -8,11 +9,11 @@ function validation(){
         error=$('#email').after('<span class="error">not a valid email</span>');
     }
     if(password.length<6){
-        $('#password').after('<span class="error">password less than 6 </span>');
         error=$('#password').after('<span class="error">password less than 6 </span>');
     }
 
     if(error==" "){
+        $(".spinner").show();
    $.ajax({
         method: "POST",
         url: "loginajax.php",
@@ -20,14 +21,13 @@ function validation(){
         success: function(response) {
           if (response.trim() == "found") {
             alert("found");
-            success();
+           $(".spinner").hide();
+           location.reload();
           } else {
                 alert("invalid username/password.  Please try again");
+                $(".spinner").hide();
           }
      }
     });
 }
-}
-function success(){
-    setTimeout(function(){ location.reload(); }, 4500);
 }

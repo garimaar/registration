@@ -6,6 +6,7 @@ function loaddata()
 	
  if(title)
  {
+  $(".spinner").show();
   $.ajax({
   type: 'post',
   url: 'updateblogajax.php',
@@ -14,9 +15,12 @@ function loaddata()
   success: function (response) {
      if(response.trim()=="Record updated successfully"){
      alert("updated successfuly");
+     $(".spinner").hide();
+     location.reload();
      }
      else{
        alert("not updated");
+       $(".spinner").hide();
      }
   }
   });

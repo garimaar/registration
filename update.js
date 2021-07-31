@@ -7,6 +7,7 @@ function loaddata()
 	
  if(username)
  {
+   $(".spinner").show();
   $.ajax({
   type: 'post',
   url: 'updateajax.php',
@@ -15,9 +16,12 @@ function loaddata()
   success: function (response) {
      if(response.trim()=="updated"){
      alert("updated");
+     $(".spinner").hide();
+     location.reload();
      }
      else{
         alert("not updated");
+        $(".spinner").hide();
      }
   }
   });

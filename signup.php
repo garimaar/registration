@@ -10,6 +10,22 @@
 </head>
 
 <body>
+    <div class="spinner">
+
+        <div class="spinner-text">
+            Loading
+        </div>
+
+        <div class="spinner-component red">
+        </div>
+
+        <div class="spinner-component green">
+        </div>
+
+        <div class="spinner-component blue">
+        </div>
+
+    </div>
     <div class="form">
         <h1>signup</h1>
         <input type="text" placeholder="username" name="username" id="username" class="text" />

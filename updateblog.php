@@ -18,6 +18,22 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+    <div class="spinner">
+
+        <div class="spinner-text">
+            Loading
+        </div>
+
+        <div class="spinner-component red">
+        </div>
+
+        <div class="spinner-component green">
+        </div>
+
+        <div class="spinner-component blue">
+        </div>
+
+    </div>
     <h1>Update</h1>
     <div id="update1">
         <input type="hidden" placeholder="id" name="id" id="id" value="<?php if (isset($_GET['id'])) {
@@ -36,7 +52,6 @@ if (isset($_GET['id'])) {
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {
             loaddata();
-            window.location.href = "bloglisting.php";
         });
     </script>
 </body>

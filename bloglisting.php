@@ -11,6 +11,22 @@ session_start();
 </head>
 
 <body>
+    <div class="spinner">
+
+        <div class="spinner-text">
+            Loading
+        </div>
+
+        <div class="spinner-component red">
+        </div>
+
+        <div class="spinner-component green">
+        </div>
+
+        <div class="spinner-component blue">
+        </div>
+
+    </div>
     <div>
         <p><?php if (isset($_SESSION['username'])) {
                 echo $_SESSION['username'];
@@ -57,6 +73,7 @@ session_start();
     <script>
         function delete_data(id) {
             if (confirm("are you sure to delete")) {
+                $(".spinner").show();
                 jQuery.ajax({
                     url: 'deleteblog.php',
                     type: 'post',
@@ -65,9 +82,11 @@ session_start();
                         if (response.trim() == "are you sure") {
                             alert("deleted successfully");
                             location.reload();
+                            $(".spinner").hide();
                         } else {
                             alert("you cant delete");
                             location.reload();
+                            $(".spinner").hide();
                         }
                     }
                 });

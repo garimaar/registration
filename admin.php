@@ -11,6 +11,22 @@ session_start();
 </head>
 
 <body>
+    <div class="spinner">
+
+        <div class="spinner-text">
+            Loading
+        </div>
+
+        <div class="spinner-component red">
+        </div>
+
+        <div class="spinner-component green">
+        </div>
+
+        <div class="spinner-component blue">
+        </div>
+
+    </div>
     <div>
         <p><?php
             if (isset($_SESSION['username'])) {
@@ -48,6 +64,7 @@ session_start();
     <script>
         function delete_data(id) {
             if (confirm("are you sure to delete")) {
+                $(".spinner").show();
                 jQuery.ajax({
                     url: 'delete.php',
                     type: 'post',
@@ -56,8 +73,10 @@ session_start();
                         if (response == "deleted") {
                             $("#row" + id).fadeOut();
                             alert("deleted");
+                            $(".spinner").hide();
                         } else {
                             alert("not deleted");
+                            $(".spinner").hide();
                         }
                     }
                 });

@@ -18,6 +18,22 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+    <div class="spinner">
+
+        <div class="spinner-text">
+            Loading
+        </div>
+
+        <div class="spinner-component red">
+        </div>
+
+        <div class="spinner-component green">
+        </div>
+
+        <div class="spinner-component blue">
+        </div>
+
+    </div>
     <h1>Update</h1>
     <div id="update">
         <input type="text" placeholder="id" name="id" id="id" value="<?php

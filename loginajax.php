@@ -1,5 +1,4 @@
 <?php
-
 require('db.php');
 session_start();
 
@@ -15,12 +14,11 @@ if (isset($_REQUEST['email'])) {
         $error = '<p>empty password</p>';
         echo $error;
     } else {
-        $query    = "SELECT * FROM `user` WHERE email='$email'
-                     AND password='" . md5($password) . "'";
+        $query    = "SELECT * FROM `user` WHERE email='" . $email . "'
+                     AND password='" . $password . "'";
 
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
-
         if ($rows == 1) {
             echo "found";
             $row = mysqli_fetch_array($result);

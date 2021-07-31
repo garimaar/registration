@@ -11,21 +11,8 @@ session_start();
 </head>
 
 <body>
-    <div class="spinner">
-
-        <div class="spinner-text">
-            Loading
-        </div>
-
-        <div class="spinner-component red">
-        </div>
-
-        <div class="spinner-component green">
-        </div>
-
-        <div class="spinner-component blue">
-        </div>
-
+    <div>
+        <?php require("header.php"); ?>
     </div>
     <div>
         <p><?php if (isset($_SESSION['username'])) {

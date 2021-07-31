@@ -9,35 +9,25 @@
 </head>
 
 <body>
-    <div class="spinner">
-
-        <div class="spinner-text">
-            Loading
-        </div>
-
-        <div class="spinner-component red">
-        </div>
-
-        <div class="spinner-component green">
-        </div>
-
-        <div class="spinner-component blue">
-        </div>
-
-        <div>
-            <h1>Blog</h1>
-            <label>Title of blog:</label>
-            <input type="text" value="title" id="title" name="title" /><br>
-            <label>Content of blog:</label>
-            <textarea rows="4" cols="50" name="comment" id="content" required>
+    <div>
+        <?php
+        require("header.php");
+        ?>
+    </div>
+    <div>
+        <h1>Blog</h1>
+        <label>Title of blog:</label>
+        <input type="text" value="title" id="title" name="title" /><br>
+        <label>Content of blog:</label>
+        <textarea rows="4" cols="50" name="comment" id="content" required>
 </textarea><br>
-            <input type="button" value="create button" id="create" />
-        </div>
-        <script>
-            document.getElementById("create").addEventListener("click", async (e) => {
-                validate();
-            });
-        </script>
+        <input type="button" value="create button" id="create" />
+    </div>
+    <script>
+        document.getElementById("create").addEventListener("click", async (e) => {
+            validate();
+        });
+    </script>
 </body>
 
 </html>

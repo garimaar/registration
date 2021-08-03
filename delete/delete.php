@@ -1,5 +1,5 @@
 <?php
-require('db.php');
+require('./../others/db.php');
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
     $query = 'DELETE FROM user WHERE id =' . $id;

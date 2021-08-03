@@ -1,5 +1,5 @@
     <?php
-    require('db.php');
+    require('./../others/db.php');
     session_start();
     if (isset($_POST['id'])) {
 

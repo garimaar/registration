@@ -6,13 +6,13 @@ session_start();
 
 <head>
     <title>Blogs</title>
-    <script src="jquery-3.6.0.min.js"></script>
-    <link href="file.css" rel="stylesheet">
+    <script src="./../others/jquery-3.6.0.min.js"></script>
+    <link href="./../css//file.css" rel="stylesheet">
 </head>
 
 <body>
     <div>
-        <?php require("header.php"); ?>
+        <?php require("./../others/header.php"); ?>
     </div>
     <div>
         <p><?php if (isset($_SESSION['username'])) {
@@ -32,7 +32,7 @@ session_start();
 
             </tr>
             <?php
-            require('db.php');
+            require('./../others/db.php');
             $sql = "SELECT b.id, b.title,b.content,u.username, b.created_at, b.updated_at
             FROM  blog b
             INNER JOIN user u

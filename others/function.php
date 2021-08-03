@@ -1,7 +1,7 @@
 <?php
 function create()
 {
-    require('db.php');
+    require('./../others/db.php');
     $sql = "CREATE TABLE IF NOT EXISTS `user` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `username` varchar(255) DEFAULT NULL,
@@ -21,7 +21,7 @@ function create()
 
 function drop()
 {
-    require('db.php');
+    require('./../others/db.php');
     $sql = "DROP TABLE user;";
     if ($con->query($sql) === TRUE) {
         echo "Table users deleted successfully";

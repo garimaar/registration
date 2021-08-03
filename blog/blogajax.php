@@ -1,7 +1,7 @@
 <?php
 $data = json_decode(file_get_contents("php://input"), true);
 
-require('db.php');
+require('./../others/db.php');
 session_start();
 
 if (isset($_REQUEST['title'])) {

@@ -1,5 +1,5 @@
 <?php
-require('db.php');
+require('./../others/db.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $username = $_GET['un'];
@@ -13,13 +13,13 @@ if (isset($_GET['id'])) {
     <title>update </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="update.js"></script>
-    <script src="jquery-3.6.0.min.js"></script>
-    <link href="update.css" rel="stylesheet">
+    <script src="./../others/jquery-3.6.0.min.js"></script>
+    <link href="./../css/update.css" rel="stylesheet">
 </head>
 
 <body>
     <div>
-        <?php require("header.php"); ?>
+        <?php require("./../others/header.php"); ?>
     </div>
     <h1>Update</h1>
     <div id="update">

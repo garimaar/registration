@@ -4,14 +4,14 @@
 <head>
     <title>signup</title>
     <script src="signup.js"></script>
-    <script src="jquery-3.6.0.min.js"></script>
+    <script src="./../others/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link href="form.css" rel="stylesheet" />
+    <link href="./../css/form.css" rel="stylesheet" />
 </head>
 
 <body>
     <div>
-        <?php require("header.php"); ?>
+        <?php require("./../others/header.php"); ?>
     </div>
     <div class="form">
         <h1>signup</h1>
@@ -26,8 +26,8 @@
             <option value="admin">admin</option>
         </select>
         <input type="submit" class="submit" id="submit" name="submit" />
-        <a href="login.php">login</a>
-        <a href="admin.php">users</a>
+        <a href="./../login/login.php">login</a>
+        <a href="./../others/admin.php">users</a>
     </div>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {

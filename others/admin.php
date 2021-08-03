@@ -6,13 +6,13 @@ session_start();
 
 <head>
     <title>users detail</title>
-    <script src="jquery-3.6.0.min.js"></script>
-    <link href="file.css" rel="stylesheet">
+    <script src="./../others/jquery-3.6.0.min.js"></script>
+    <link href="./../css/file.css" rel="stylesheet">
 </head>
 
 <body>
     <div>
-        <?php require("header.php"); ?>
+        <?php require("./../others/header.php"); ?>
     </div>
     <div>
         <p><?php
@@ -31,7 +31,7 @@ session_start();
                 <th>edit</th>
             </tr>
             <?php
-            require('db.php');
+            require('./../others/db.php');
             $sql = "SELECT * FROM user WHERE role='user'";
             $query = mysqli_query($con, $sql) or die('error');
             if (mysqli_num_rows($query) > 0) {

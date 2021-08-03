@@ -3,7 +3,7 @@
 
 <body>
     <?php
-    require("function.php");
+    require("./../others/function.php");
     create();
     $shortopts  = "";
     $shortopts .= "f:";

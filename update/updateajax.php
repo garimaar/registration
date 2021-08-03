@@ -1,5 +1,5 @@
 <?php
-require('db.php');
+require('./../others/db.php');
 
 if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];

@@ -1,7 +1,7 @@
 function validation(){
 
-    email=$('#email').val();
-    password=$('#password').val();
+   var email=$('#email').val();
+    var password=$('#password').val();
     var error=" ";
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(re.test(String(email).toLowerCase())==false)
@@ -13,19 +13,19 @@ function validation(){
     }
 
     if(error==" "){
-        $(".spinner").show();
-   $.ajax({
+        $(".loading").show();
+       $.ajax({
         method: "POST",
         url: "loginajax.php",
        data: { email: email , password:password },
         success: function(response) {
           if (response.trim() == "found") {
             alert("found");
-           $(".spinner").hide();
+           $(".loading").hide();
            location.reload();
           } else {
                 alert("invalid username/password.  Please try again");
-                $(".spinner").hide();
+                $(".loading").hide();
           }
      }
     });

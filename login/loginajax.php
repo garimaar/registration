@@ -26,7 +26,7 @@ if (isset($_REQUEST['email'])) {
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $role;
                 $_SESSION['id'] = $id;
-                $_SESSION['email'] = $email; // Initializing Session
+                $_SESSION['email'] = $email;
                 exit;
             }
         }

@@ -6,7 +6,7 @@ function loaddata()
 	
  if(title)
  {
-  $(".spinner").show();
+  $(".loading").show();
   $.ajax({
   type: 'post',
   url: 'updateblogajax.php',
@@ -15,12 +15,13 @@ function loaddata()
   success: function (response) {
      if(response.trim()=="Record updated successfully"){
      alert("updated successfuly");
-     $(".spinner").hide();
+     $(".loading").hide();
      location.reload();
+     window.location.href = "./../blog/bloglisting.php";
      }
      else{
        alert("not updated");
-       $(".spinner").hide();
+       $(".loading").hide();
      }
   }
   });

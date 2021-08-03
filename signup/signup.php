@@ -27,7 +27,7 @@
         </select>
         <input type="submit" class="submit" id="submit" name="submit" />
         <a href="./../login/login.php">login</a>
-        <a href="./../others/admin.php">users</a>
+        <a href="./../others/logout.php">logout</a>
     </div>
     <script>
         document.getElementById("submit").addEventListener("click", async (e) => {

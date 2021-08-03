@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div class="loading">Loading&#8230;</div>
+    <div class="loading">Loading</div>
 </body>
 
 </html>

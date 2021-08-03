@@ -10,7 +10,7 @@ function validate(){
         error=$("#content").after('<span class="error">This field is required</span>');
     }
     if(error==" "){
-        $(".spinner").show(); 
+        $(".loading").show(); 
     $.ajax({
         method: "POST",
         url: "blogajax.php",
@@ -18,12 +18,13 @@ function validate(){
         success: function (response) {
             if(response.trim()=="blog created"){
             alert("blog created");
-            $(".spinner").hide();
+            $(".loading").hide();
             location.reload();
+            window.location.href = "./../blog/bloglisting.php";
             }
             else{
                 alert("not created");
-                $(".spinner").hide();
+                $(".loadimg").hide();
             }
          }
       });

@@ -1,9 +1,9 @@
 function validate(){
-    nname=$("#username").val();
-    eemail=$("#email").val();
-    ppassword=$("#password").val();
-    cpassword=$("#cpassword").val();
-    role=$("#role").val();
+    var nname=$("#username").val();
+    var eemail=$("#email").val();
+    var ppassword=$("#password").val();
+    var cpassword=$("#cpassword").val();
+    var role=$("#role").val();
     var error=" ";
 
     if(nname<1){
@@ -24,20 +24,22 @@ function validate(){
       error=$("#role").after('<span class="error">select role</span>');
     } 
     if(error==" "){
-      $(".spinner").show();
+      $(".loading").show();
     $.ajax({
         method: "POST",
+        dataType: "json",
         url: "signupajax.php",
         data: { username:nname, email: eemail ,password:ppassword,role:role }
       })
         .done(function(response) {
             if(response.trim()=="You are registered successfully."){
           alert( "registered successfully ");
-          $(".spinner").hide();
+          $(".loading").hide();
           location.reload();
+          window.location.href = "./../others/admin.php";
             }else{
                 alert("not registered");
-                $(".spinner").hide();
+                $(".loading").hide();
             }
         });
     }

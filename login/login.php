@@ -17,10 +17,7 @@ session_start();
         <?php require("./../others/header.php"); ?>
     </div>
     <div id="data">
-        <p><?php
-            if (isset($_SESSION['username'])) {
-                echo $_SESSION['username'];
-            } ?></p>
+        <p><?php require("./../others/name.php") ?></p>
         <br>
         <p><?php
             if (isset($_SESSION['username'])) {
@@ -33,6 +30,7 @@ session_start();
                 if ($_SESSION['role'] == 'admin') {
                     echo "<button><a href='./../blog/blog.php'>create blog</a></button>";
                     echo "<button><a href='./../blog/bloglisting.php'>blog list</a></button>";
+                    header("Location: ./../others/admin.php");
                 }
             } ?></p>
     </div>

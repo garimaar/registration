@@ -11,6 +11,7 @@ if (isset($_REQUEST['username'])) {
     $password = mysqli_real_escape_string($con, $password);
     $role = stripslashes($_REQUEST['role']);
     $role = mysqli_real_escape_string($con, $role);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     if (empty($username)) {
         $error = '<p>invalid username</p>';
     }
@@ -26,7 +27,6 @@ if (isset($_REQUEST['username'])) {
         $error = '<p>select option</p>';
         echo $error;
     }
-    $hashPassword = password_hash($password, PASSWORD_DEFAULT);
     if (empty($error)) {
         $stmt = $con->prepare("SELECT * FROM user WHERE email = ?");
         $stmt->bind_param("s", $email);

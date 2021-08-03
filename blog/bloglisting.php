@@ -15,9 +15,7 @@ session_start();
         <?php require("./../others/header.php"); ?>
     </div>
     <div>
-        <p><?php if (isset($_SESSION['username'])) {
-                echo $_SESSION['username'];
-            } ?></p>
+        <p><?php require("./../others/name.php") ?></p>
     </div>
     <div class="table">
         <h1>User details</h1>
@@ -49,31 +47,33 @@ session_start();
             <td>" . $users['username'] . "</td>
             <td>" . $users['created_at'] . "</td>
             <td>" . $users['updated_at'] . "</td>
-            <td><button><a href='updateblog.php?id=$users[id]&ti=$users[title]&co=$users[content]'>edit/update</a></button><button class='delete' onclick='delete_data($users[id])'> delete</button></td>";
+            <td><button><a href='./../update/updateblog.php?id=$users[id]&ti=$users[title]&co=$users[content]'>edit/update</a></button><button class='delete' onclick='delete_data($users[id])'> delete</button></td>";
                 }
             }
             ?>
         </table>
     </div>
     <button><a href='blog.php'>create blog</a></button>
+    <button><a href='./../others/logout.php'>logout</a></button>
+
 
     <script>
         function delete_data(id) {
             if (confirm("are you sure to delete")) {
-                $(".spinner").show();
+                $(".loading").show();
                 jQuery.ajax({
-                    url: 'deleteblog.php',
+                    url: './../delete/deleteblog.php',
                     type: 'post',
                     data: 'id=' + id,
                     success: function(response) {
                         if (response.trim() == "are you sure") {
                             alert("deleted successfully");
                             location.reload();
-                            $(".spinner").hide();
+                            $(".loading").hide();
                         } else {
                             alert("you cant delete");
                             location.reload();
-                            $(".spinner").hide();
+                            $(".loading").hide();
                         }
                     }
                 });

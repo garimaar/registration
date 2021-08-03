@@ -15,10 +15,7 @@ session_start();
         <?php require("./../others/header.php"); ?>
     </div>
     <div>
-        <p><?php
-            if (isset($_SESSION['username'])) {
-                echo $_SESSION['username'];
-            } ?></p>
+        <p><?php require("./../others/name.php") ?></p>
     </div>
     </div>
     <div class="table">
@@ -28,6 +25,8 @@ session_start();
                 <th>Id</th>
                 <th>Username</th>
                 <th>email</th>
+                <th>created_at</th>
+                <th>updated_at</th>
                 <th>edit</th>
             </tr>
             <?php
@@ -41,29 +40,38 @@ session_start();
             <td>" . $users['id'] . "</td>
             <td>" . $users['username'] . "</td>
             <td>" . $users['email'] . "</td>
-            <td><button><a href='update.php?id=$users[id]&un=$users[username]&em=$users[email]'>edit/update</a></button><button id='$users[id] ' onclick='delete_data($users[id])'>delete</button></td>
+            <td>" . $users['created_at'] . "</td>
+            <td>" . $users['updated_at'] . "</td>
+            <td><button><a href='./../update/update.php?id=$users[id]&un=$users[username]&em=$users[email]'>edit/update</a></button><button id='$users[id] ' onclick='delete_data($users[id])'>delete</button></td>
             ";
                 }
             }
             ?>
         </table>
     </div>
+    <a href="./../others/logout.php">logout</a>
+    <div>
+        blog :
+        <a href="./../blog/blog.php">blog</a>
+        <a href="./../blog/bloglisting.php">bloglisting</a>
+    </div>
     <script>
         function delete_data(id) {
             if (confirm("are you sure to delete")) {
-                $(".spinner").show();
+                $(".loading").show();
                 jQuery.ajax({
-                    url: 'delete.php',
+                    url: './../delete/delete.php',
                     type: 'post',
                     data: 'id=' + id,
                     success: function(response) {
                         if (response == "deleted") {
                             $("#row" + id).fadeOut();
                             alert("deleted");
-                            $(".spinner").hide();
+                            $(".loading").hide();
+
                         } else {
                             alert("not deleted");
-                            $(".spinner").hide();
+                            $(".loading").hide();
                         }
                     }
                 });

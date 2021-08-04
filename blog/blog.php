@@ -20,7 +20,7 @@
         <input type="text" value="title" id="title" name="title" /><br>
         <label>Content of blog:</label>
         <textarea rows="4" cols="50" name="comment" id="content" required>
-</textarea><br>
+   </textarea><br>
         <input type="button" value="create button" id="create" />
     </div>
     <script>

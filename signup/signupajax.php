@@ -1,6 +1,4 @@
 <?php
-$data = json_decode(file_get_contents("php://input"), true);
-
 require('./../others/db.php');
 if (isset($_REQUEST['username'])) {
     $username = stripslashes($_REQUEST['username']);

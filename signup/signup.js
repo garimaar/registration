@@ -25,22 +25,17 @@ function validate() {
   if (error == " ") {
     $(".loading").show();
     $.ajax({
-      method: "POST",
+      type: 'post',
       dataType: "json",
       url: "signupajax.php",
-      data: { username: nname, email: eemail, password: ppassword, role: role }
-    })
-      .done(function (response) {
-        if (response.trim() == "You are registered successfully.") {
-          console.log("registered successfully ");
-          $(".loading").hide();
-          location.reload();
-          window.location.href = "./../others/admin.php";
-        } else {
-          alert("not registered");
-          $(".loading").hide();
-        }
-      });
+      data: { username: nname, email: eemail, password: ppassword, role: role },
+      success: function (data) {
+        alert(data.message)
+        location.reload();
+        $(".loading").hide();
+      }
+    });
   }
 }
+
 

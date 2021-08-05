@@ -14,18 +14,14 @@ function validation() {
     if (error == " ") {
         $(".loading").show();
         $.ajax({
-            method: "POST",
-            url: "loginajax.php",
+            url: 'loginajax.php',
+            type: 'post',
+            dataType: 'json',
             data: { email: email, password: password },
-            success: function (response) {
-                if (response.trim() == "found") {
-                    alert("found");
-                    $(".loading").hide();
-                    location.reload();
-                } else {
-                    alert("invalid username/password.  Please try again");
-                    $(".loading").hide();
-                }
+            success: function (data) {
+                alert(data.message);
+                location.reload();
+                $(".loading").hide();
             }
         });
     }

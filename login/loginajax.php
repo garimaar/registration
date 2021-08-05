@@ -1,8 +1,9 @@
 <?php
+header("Content-Type: application/json");
 require('./../others/db.php');
 session_start();
-
 if (isset($_REQUEST['email'])) {
+
     $email = stripslashes($_REQUEST['email']);
     $email = mysqli_real_escape_string($con, $email);
     $password = stripslashes($_REQUEST['password']);
@@ -22,13 +23,21 @@ if (isset($_REQUEST['email'])) {
 
         if ($stmt->fetch()) {
             if (password_verify($password, $hashed_password)) {
-                echo "found";
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $role;
                 $_SESSION['id'] = $id;
                 $_SESSION['email'] = $email;
-                exit;
+                $response = array(
+                    'status' => true,
+                    'message' => 'Success'
+                );
+            } else {
+                $response = array(
+                    'status' => false,
+                    'message' => 'invalid email/username'
+                );
             }
+            echo json_encode($response);
         }
     }
 } else {

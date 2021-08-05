@@ -34,6 +34,7 @@ session_start();
                 }
             } ?></p>
     </div>
+    <div id="dataf"></div>
     <div class="form">
         <h1>login</h1>
         <input type="email" name="email" placeholder="email" id="email" class="text" />

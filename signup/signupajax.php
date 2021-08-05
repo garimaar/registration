@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: application/json");
 require('./../others/db.php');
 if (isset($_REQUEST['username'])) {
     $username = stripslashes($_REQUEST['username']);
@@ -34,11 +35,18 @@ if (isset($_REQUEST['username'])) {
             $stmt_1 = $con->prepare("INSERT INTO user (username, email, password,role) VALUES (?, ?, ?,?)");
             $stmt_1->bind_param("ssss", $username, $email, $password, $role);
             $stmt_1->execute();
-            echo 'You are registered successfully.';
+            $response = array(
+                'status' => true,
+                'message' => 'registered'
+            );
             $stmt_1->close();
         } else {
-            echo "account_exist";
+            $response = array(
+                'status' => false,
+                'message' => 'invalid email/username'
+            );
         }
+        echo json_encode($response);
         $stmt->free_result();
         $stmt->close();
     }

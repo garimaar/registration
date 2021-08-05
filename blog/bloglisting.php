@@ -66,7 +66,7 @@ session_start();
                     type: 'post',
                     data: 'id=' + id,
                     success: function(response) {
-                        if (response.trim() == "are you sure") {
+                        if (response.trim() === "are you sure") {
                             alert("deleted successfully");
                             location.reload();
                             $(".loading").hide();

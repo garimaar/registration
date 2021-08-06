@@ -1,3 +1,6 @@
+<?php
+require("./../others/header.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -10,9 +13,6 @@
 </head>
 
 <body>
-    <div>
-        <?php require("./../others/header.php"); ?>
-    </div>
     <div class="form">
         <h1>signup</h1>
         <input type="text" placeholder="username" name="username" id="username" class="text" />
@@ -37,3 +37,6 @@
 </body>
 
 </html>
+<?php
+require("./../others/footer.php");
+?>

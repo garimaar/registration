@@ -1,5 +1,7 @@
 <?php
 session_start();
+require("./../others/header.php");
+require("./../others/name.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,12 +15,7 @@ session_start();
 </head>
 
 <body>
-    <div>
-        <?php require("./../others/header.php"); ?>
-    </div>
     <div id="data">
-        <p><?php require("./../others/name.php") ?></p>
-        <br>
         <p><?php
             if (isset($_SESSION['username'])) {
                 echo $_SESSION['email'];
@@ -50,3 +47,6 @@ session_start();
 </body>
 
 </html>
+<?php
+require("./../others/footer.php");
+?>

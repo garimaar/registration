@@ -1,5 +1,7 @@
 <?php
 session_start();
+require("./../others/header.php");
+require("./../others/name.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,12 +13,6 @@ session_start();
 </head>
 
 <body>
-    <div>
-        <?php require("./../others/header.php"); ?>
-    </div>
-    <div>
-        <p><?php require("./../others/name.php") ?></p>
-    </div>
     <div class="table">
         <h1>User details</h1>
         <table id='example'>
@@ -84,3 +80,6 @@ session_start();
 </body>
 
 </html>
+<?php
+require("./../others/footer.php");
+?>

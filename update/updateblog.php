@@ -1,4 +1,5 @@
 <?php
+require("./../others/header.php");
 require('./../others/db.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -18,9 +19,6 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-    <div>
-        <?php require("./../others/header.php"); ?>
-    </div>
     <h1>Update</h1>
     <div id="update1">
         <input type="hidden" placeholder="id" name="id" id="id" value="<?php if (isset($_GET['id'])) {
@@ -44,3 +42,6 @@ if (isset($_GET['id'])) {
 </body>
 
 </html>
+<?php
+require("./../others/footer.php");
+?>

@@ -1,3 +1,6 @@
+<?php
+require("./../others/header.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -9,11 +12,6 @@
 </head>
 
 <body>
-    <div>
-        <?php
-        require("./../others/header.php");
-        ?>
-    </div>
     <div>
         <h1>Blog</h1>
         <label>Title of blog:</label>
@@ -31,3 +29,6 @@
 </body>
 
 </html>
+<?php
+require("./../others/footer.php");
+?>

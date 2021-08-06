@@ -33,6 +33,8 @@ function validate() {
         alert(data.message)
         location.reload();
         $(".loading").hide();
+        window.location.href = "./../others/admin.php";
+
       }
     });
   }

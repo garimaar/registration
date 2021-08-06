@@ -24,7 +24,7 @@ function validate() {
                 }
                 else {
                     alert("not created");
-                    $(".loadimg").hide();
+                    $(".loading").hide();
                 }
             }
         });

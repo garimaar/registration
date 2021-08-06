@@ -27,7 +27,7 @@ if (isset($_REQUEST['username'])) {
         echo $error;
     }
     if (empty($error)) {
-        $stmt = $con->prepare("SELECT * FROM user WHERE email = ?");
+        $stmt = $con->prepare("SELECT username,email,password,role FROM user WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store_result();

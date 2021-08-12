@@ -1,0 +1,20 @@
+body {
+  background-color: saddlebrown;
+  text-align: center;
+}
+input {
+  padding: 10px;
+}
+#update {
+  background-color: sandybrown;
+  padding: 20px;
+  margin: 100px 80px 80px 80px;
+}
+h1 {
+  font-size: 60px;
+}
+#update1 {
+  background-color: slategray;
+  padding: 20px;
+  margin: 100px 80px 80px 80px;
+}
